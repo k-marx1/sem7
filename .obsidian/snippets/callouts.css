@@ -58,6 +58,8 @@ settings:
 
 /* ----- callouts ----- */
 
+
+
 .callout,
 .callout-normal .callout {
   background-color: rgba(var(--callout-color), 0.17);
@@ -105,3 +107,20 @@ settings:
 .callout-floating .markdown-source-view.mod-cm6 .callout-content {
   padding: 0px 10px;
 }
+
+.callout[data-callout="theorem"] {
+  --callout-color: 0, 130, 26;   /* RGB */
+  --callout-icon: notebook-pen;     /* иконка */
+}
+
+.callout[data-callout="formula"] {
+  --callout-color: 118, 0, 122;   /* RGB */
+  --callout-icon: sigma;     /* иконка */
+}
+
+/* callout highlight */
+body.snippet-highlight .callout {
+  border-left: 6px solid #4da6ff;
+}
+
+

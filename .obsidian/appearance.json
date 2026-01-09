@@ -13,7 +13,8 @@
     "callouts",
     "figure",
     "clear",
-    "mcl-print-floats"
+    "mcl-print-floats",
+    "zzz-callout-date"
   ],
   "cssTheme": "Minimal",
   "theme": "moonstone",

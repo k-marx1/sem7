@@ -1,0 +1,95 @@
+/* =========================
+   DATE CALLOUT — HARD OVERRIDE (Chime-safe)
+   Убирает все рамки у контейнера, оставляет "овал" с подчеркнутым текстом
+   ========================= */
+
+/* 0) Настройки "типа" колаута */
+.callout[data-callout="date"] {
+  --callout-color: 90, 140, 255;   /* цвет (RGB), влияет на овал */
+  --callout-icon: calendar-days;   /* иконка */
+}
+
+/* 1) Контейнер: полный override + УБРАТЬ серую обводку */
+.callout[data-callout="date"],
+.markdown-source-view.mod-cm6 .callout[data-callout="date"],
+.callout-normal .callout[data-callout="date"],
+.callout-bordered .callout[data-callout="date"],
+.callout-outlined .callout[data-callout="date"],
+.callout-floating .callout[data-callout="date"],
+body.snippet-highlight .callout[data-callout="date"] {
+  /* фон можно менять/убрать */
+  background-color: var(--background-secondary) !important;
+
+  /* убрать любые рамки/обводки от темы */
+  border: none !important;
+  border-left: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  border-radius: 12px !important;
+  padding: 0.85em 0.95em !important;
+  margin: 1em 0 !important;
+
+  overflow: hidden !important;
+  position: relative !important;
+}
+
+/* 2) Заголовок: прибить outlined/floating, которые двигают title */
+.callout[data-callout="date"] .callout-title,
+.markdown-source-view.mod-cm6 .callout[data-callout="date"] .callout-title,
+.callout-outlined .callout[data-callout="date"] .callout-title,
+.callout-floating .callout[data-callout="date"] .callout-title {
+  background: transparent !important;
+  width: auto !important;
+
+  margin: 0 0 0.55em 0 !important;
+  padding: 0 !important;
+
+  top: auto !important;
+  left: auto !important;
+
+  box-shadow: none !important;
+  border: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.45em !important;
+}
+
+/* 3) Иконка: без фильтров/прозрачностей от темы */
+.callout[data-callout="date"] .callout-icon,
+.markdown-source-view.mod-cm6 .callout[data-callout="date"] .callout-icon {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+/* 4) Текст заголовка: ОВАЛ + ПОДЧЁРКИВАНИЕ */
+.callout[data-callout="date"] .callout-title-inner,
+.markdown-source-view.mod-cm6 .callout[data-callout="date"] .callout-title-inner {
+  display: inline-flex !important;
+  align-items: center !important;
+
+  padding: 0.18em 0.85em !important;
+  border-radius: 999px !important;
+
+  background: var(--background-primary) !important;
+  border: 1px solid rgba(var(--callout-color), 0.55) !important;
+
+
+  text-decoration-thickness: 0.09em !important;
+  text-underline-offset: 0.22em !important;
+
+  font-weight: 650 !important;
+}
+
+/* 5) Контент: убрать “card” паддинги/фоны от floating */
+.callout[data-callout="date"] .callout-content,
+.markdown-source-view.mod-cm6 .callout[data-callout="date"] .callout-content,
+.callout-floating .callout[data-callout="date"] .callout-content {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-shadow: none !important;
+}
+
